@@ -10,8 +10,8 @@
         int wtime;
         
     }p[10];
-void main(){
-int n,ttat,twt,atat,awt;
+void main(){int n;
+int ttat=0,twt=0,atat,awt;
   printf("\n -------------FCFS SCHEDULING------------- \n");
   printf("\n Enter the number of process \n");
   scanf("%d",&n);
@@ -26,12 +26,14 @@ int n,ttat,twt,atat,awt;
   for(int i=1;i<=n;i++){
     p[i].ctime=p[i].btime+p[i-1].ctime;
     p[i].tat=p[i].ctime-p[i].atime;
+    ttat=p[i].tat+ttat;
     p[i].wtime=p[i].tat-p[i].btime;
+    twt=p[i].wtime+twt;
   }
   printf("\n --------------------Table is ---------------------\n ");
   printf("\n pid \t atime \t Btime \t ctime \t tat \t wating \t \n");
   for(int i=1;i<=n;i++){
     printf("\n  %d \t %d \t %d \t %d \t %d \t %d \t  \n ",p[i].pid,p[i].atime,p[i].btime,p[i].ctime,p[i].tat,p[i].wtime);
   }
-    
+    printf("\n Average TurnAroundTime %d \n Average Waiting Time %d\n",ttat/n,twt/n);
 }
