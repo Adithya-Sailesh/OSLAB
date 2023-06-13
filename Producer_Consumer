@@ -1,0 +1,46 @@
+//produce_consumer
+#include <stdio.h>
+int mutex=1,empty=5,full=0,x=0;
+void producer(){
+    --mutex;
+    ++full;
+    --empty;
+    x++;
+    printf("New item produced %d",x);
+    ++mutex;
+}
+void consumer(){
+    --mutex;
+    ++empty;
+    --full;
+    printf("Item consumed %d",x);
+    x--;
+    ++mutex;
+}
+void main()
+{
+   printf(" 1 for producer \n 2 for consumer \n 3 exit\n");
+   while(1){
+       int ch=0;
+       printf("\nenter your choice");
+       scanf("%d",&ch);
+       if(ch==1){
+           if(mutex==1 && empty!=0){
+               producer();
+           }
+           else{
+               printf("\nBuffer full\n");
+           }
+       }else if(ch==2){
+           if(mutex==1 && full!=0){
+               consumer();
+           }else{
+               printf("\nNo Buffer to consume\n");
+           }
+       }
+       else{
+           break;
+       }
+   }
+  
+}
