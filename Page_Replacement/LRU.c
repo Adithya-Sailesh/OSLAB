@@ -56,5 +56,5 @@ void main(){
             printf("Page Hit");
             printf("\n");
         }
-    }printf("Total Page hit =%d",fault);
+    }printf("Total Page miss =%d",fault);
 }
