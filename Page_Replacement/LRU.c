@@ -43,7 +43,9 @@ void main(){
                 next++;
             }
          fault++;   
-        }for(k=0;k<f;k++){
+        }
+         //for printing
+         for(k=0;k<f;k++){
             printf("%d \t",m[k]);
         }
         if(flag[i]==0){
