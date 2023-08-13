@@ -1,15 +1,9 @@
 #include<stdio.h>
 struct sched{
-    int pid;
-    int atime;
-    int btime;
-    int priority;
-    int ctime;
-    int ttime;
-    int wtime;
-}p[10],most;
+    int pid,atime,btime,priority,ctime,ttime,wtime;
+}p[10];
 void main(){
-    int i,j,n,finish[10],ttat=0,time=0,index;
+    int i,n,finish[10],ttat=0,time=0,index;
     printf("Enter the number of process");
     scanf("%d",&n);
     printf("Enter the arival time btime priority\n");
@@ -57,4 +51,12 @@ void main(){
     printf("\n  %d \t %d \t %d \t %d \t %d \t %d \t  \n ",p[i].pid,p[i].atime,p[i].btime,p[i].ctime,p[i].ttime,p[i].wtime);
   } 
   printf("total tat =%d",ttat);
+    printf("\n-------------------------------------------------------------\n");        //Gant chart
+    for(i=0;i<n;i++){
+        printf("|P%d \t",i);
+    }printf("|");
+    printf("\n-------------------------------------------------------------\n");
+    for(i=0;i<n;i++){
+        printf("%d \t",p[i].wtime);
+    }
 }
